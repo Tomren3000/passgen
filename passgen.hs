@@ -12,9 +12,8 @@ parseArgs ["-h"] = help
 parseArgs ["--help"] = help
 parseArgs ["-v"] = version
 parseArgs ["--version"] = version
-parseArgs [a] = help
-parseArgs (a:as) = help
+parseArgs (_:_) = help
 
 version :: IO ()
-version = putStrLn "passgen version 0.0.1\nCopyright (C) 2015 Trine Løcke"
+version = putStrLn "passgen version 0.0.1\nCopyright (C) 2015 Trine Løcke & Morten Jensen"
 
