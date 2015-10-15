@@ -1,2 +1,0 @@
-# passgen
-Haskell password generator
