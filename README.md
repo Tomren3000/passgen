@@ -1,3 +1,3 @@
 # passgen - a Haskell password generator
 
-Usage examples comming soon.
+Usage examples coming soon.
