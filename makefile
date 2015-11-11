@@ -1,5 +1,5 @@
 passgen:
-	ghc -static -hidir build -odir build -o bin/passgen passgen.hs
+	ghc -hidir build -odir build -o bin/passgen passgen.hs
 
 clean:
 	@rm -f bin/*
