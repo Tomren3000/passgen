@@ -1,5 +1,6 @@
 import System.Environment
 import System.Exit
+import System.Random
 
 main :: IO ()
 main = getArgs >>= parseArgs
@@ -22,3 +23,9 @@ help = "passgen usage:\n" ++
 
 generatePassword :: Int -> String
 generatePassword n = "Length of password is " ++ show n
+
+rollDice :: IO Int
+rollDice = getStdRandom (randomR (0,length validChars - 1))
+
+validChars :: String
+validChars = "abcdefghjkmnpqrstuvxyz"
