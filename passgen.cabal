@@ -1,14 +1,14 @@
 name:                passgen
 version:             0.1.0.0
-synopsis:            Simple project template from stack
+synopsis:            Simple password generator
 description:         Please see README.md
-homepage:            http://github.com/githubuser/passgen#readme
-license:             BSD3
+homepage:            https://github.com/Tomren3000/passgen
+license:             Public Domain
 license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2010 Author Here
-category:            Web
+author:              Morten Jensen
+maintainer:          tomren3000@gmail.com
+copyright:           2016- Morten Jensen
+category:            Password
 build-type:          Simple
 cabal-version:       >=1.10
 
