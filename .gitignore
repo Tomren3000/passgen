@@ -2,11 +2,5 @@
 *~
 \#*\#
 
-# Ignore bin and build
-**/bin/*
-**/build/*
-!**/bin/.gitignore
-!**/build/.gitignore
-
-
-
+# Ignore .stack-work
+.stack-work
