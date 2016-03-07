@@ -3,7 +3,7 @@ version:             0.1.0.0
 synopsis:            Simple password generator
 description:         Please see README.md
 homepage:            https://github.com/Tomren3000/passgen
-license:             Public Domain
+license:             PublicDomain
 license-file:        LICENSE
 author:              Morten Jensen
 maintainer:          tomren3000@gmail.com
