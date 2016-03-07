@@ -9,7 +9,9 @@ parseArgs :: [String] -> IO ()
 parseArgs ("-l":n:[]) = putStrLn (generatePassword (read n :: Int)) >> exitSuccess
 parseArgs ["-v"] = putStrLn version >> exitSuccess
 parseArgs ["--version"] = putStrLn version >> exitSuccess
-parseArgs _ = putStrLn help >> exitSuccess
+parseArgs ["-h"] = putStrLn help >> exitSuccess
+parseArgs ["--help"] = putStrLn help >> exitSuccess
+parseArgs _ = putStrLn help >> exitFailure
 
 version :: String
 version = "passgen version 0.0.1"
@@ -18,8 +20,8 @@ help :: String
 help = "passgen usage:\n" ++
        " -l n length of password\n" ++
        " -v | --version program version\n" ++
-       " -h this help\n" ++
-       "Example: passgen -l 10"
+       " -h | --help this help\n" ++
+        "Example: passgen -l 10"
 
 generatePassword :: Int -> String
 generatePassword n = "Length of password is " ++ show n
@@ -29,3 +31,8 @@ rollDice = getStdRandom (randomR (0,length validChars - 1))
 
 validChars :: String
 validChars = "abcdefghjkmnpqrstuvxyz"
+
+validInput :: String -> Bool
+validInput s = case reads s :: [(Int,String)] of
+  [(n,"")] -> True
+  _ -> False
