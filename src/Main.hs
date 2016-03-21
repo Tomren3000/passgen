@@ -26,11 +26,21 @@ help = "passgen usage:\n" ++
 generatePassword :: Int -> String
 generatePassword n = "Length of password is " ++ show n
 
+--let Foo = (!!) validChars
+--fmap foo rollDice
+
+generatePassword' :: Int -> String -> String
+generatePassword' n s
+  | n < 1 = s
+  | otherwise = generatePassword' (n - 1) ((:) 'a' s)
+
 rollDice :: IO Int
 rollDice = getStdRandom (randomR (0,length validChars - 1))
 
 validChars :: String
 validChars = "abcdefghjkmnpqrstuvxyz"
+
+
 
 validInput :: String -> Bool
 validInput s = case reads s :: [(Int,String)] of
