@@ -16,6 +16,6 @@ executable passgen
   main-is:             Passgen.hs
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5,
-                       random
+                       random,
                        parseargs >= 0.2 && < 1
   ghc-options:         -Wall
