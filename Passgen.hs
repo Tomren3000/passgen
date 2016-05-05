@@ -1,9 +1,10 @@
 -- import System.Environment
--- import System.Exit
+import           System.Exit
 -- import System.Random
-import System.Console.ParseArgs
-import Control.Monad
-
+import           Control.Monad
+import           Data.Version
+import qualified Paths_passgen            as P
+import           System.Console.ParseArgs
 data Option = OptionVersion | OptionHelp | OptionLength
            deriving (Ord,Eq,Show)
 
@@ -19,7 +20,7 @@ argd = [
         argAbbr  = Just 'h',
         argData  = Nothing,
         argDesc  = "Show program help" },
-  Arg { argIndex = OptionVersion,
+  Arg { argIndex = OptionLength,
         argName  = Just "length",
         argAbbr  = Just 'l',
         argData  = argDataDefaulted "char-count" ArgtypeInt 12,
@@ -27,6 +28,17 @@ argd = [
 
 main :: IO ()
 main = do
+  args <- parseArgsIO ArgsComplete argd
+  when (gotArg args OptionVersion) $ do
+    putStrLn $ argsProgName args ++ " " ++ version
+    exitSuccess
+  when (gotArg args OptionHelp) $ do
+    putStrLn "help"
+    exitSuccess
+  putStrLn "length"
+
+version :: String
+version = "version " ++ showVersion P.version
 
 
 --main = getArgs >>= parseArgs
@@ -40,7 +52,7 @@ main = do
 --parseArgs _ = putStrLn help >> exitFailure
 
 --version :: String
---version = "passgen version 0.0.1"
+--version = "passgen version 0.0.1""version
 
 --help :: String
 --help = "passgen usage:\n" ++
